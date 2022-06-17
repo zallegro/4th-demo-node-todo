@@ -12,10 +12,10 @@ variables:
   azureSubscription: 'bfad3e7a-6824-4cd1-9c88-b0dc2b8e3809'
 
   # Web app name
-  webAppName: 'node-todo-31665'
+  webAppName: 'node-todo-25876'
 
   # Environment name
-  environmentName:  'node-todo-31665'
+  environmentName:  'node-todo-25876'
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
@@ -68,7 +68,7 @@ stages:
         deploy:
           steps:
           - task: AzureWebApp@1
-            displayName: 'Azure Web App Deploy: node-todo-31665'
+            displayName: 'Azure Web App Deploy: node-todo-25876'
             inputs:
               azureSubscription: $(azureSubscription)
               appType: webAppLinux
