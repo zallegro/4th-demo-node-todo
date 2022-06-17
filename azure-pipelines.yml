@@ -12,12 +12,10 @@ variables:
   azureSubscription: 'bfad3e7a-6824-4cd1-9c88-b0dc2b8e3809'
 
   # Web app name
-  #webAppName: 'node-todo-mean'
-  webAppName: 'node-todo-61384'
+  webAppName: 'node-todo-31665'
 
   # Environment name
-  #environmentName: 'node-todo-mean'
-  environmentName:  'node-todo-61384'
+  environmentName:  'node-todo-31665'
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
@@ -34,7 +32,7 @@ stages:
     steps:
     - task: NodeTool@0
       inputs:
-        versionSpec: '14.x'
+        versionSpec: '10.10'
       displayName: 'Install Node.js'
 
     - script: |
@@ -70,11 +68,11 @@ stages:
         deploy:
           steps:
           - task: AzureWebApp@1
-            displayName: 'Azure Web App Deploy: node-todo-61384'
+            displayName: 'Azure Web App Deploy: node-todo-31665'
             inputs:
               azureSubscription: $(azureSubscription)
               appType: webAppLinux
               appName: $(webAppName)
               runtimeStack: 'NODE|10.10'
               package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
-              startUpCommand: 'npm run start'
+              startUpCommand: 'pm2 start server.js --no-daemon'
